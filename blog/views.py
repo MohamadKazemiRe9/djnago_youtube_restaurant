@@ -38,3 +38,17 @@ def blog_detail(request,id):
         "comments":comments,
     }
     return render(request,"blog/blog_detail.html",context)
+
+def blog_tag(request,tag):
+    blogs = Blog.objects.filter(tags__slug=tag)
+    context = {
+        "blogs":blogs
+    }
+    return render(request,"blog/blog_list.html",context)
+
+def blog_category(request,category):
+    blogs = Blog.objects.filter(category__slug=category)
+    context = {
+        "blogs":blogs
+    }
+    return render(request,"blog/blog_list.html",context)

@@ -13,7 +13,7 @@ class Blog(models.Model):
     author = models.ForeignKey(User, verbose_name=_("نویسنده"), on_delete=models.CASCADE)
     image = models.ImageField(_("تصویر"), upload_to="blogs/", blank = True , null = True)
     category = models.ForeignKey("Category", related_name="blog" , verbose_name=_("دسته بندی"), on_delete=models.CASCADE,blank=True, null=True)
-    tegs = models.ManyToManyField("Tag", verbose_name=_("تگ ها"),related_name="blogs",blank=True,null=True)
+    tags = models.ManyToManyField("Tag", verbose_name=_("تگ ها"),related_name="blogs",blank=True,null=True)
     def __str__(self):
         return self.title
 
