@@ -1,14 +1,18 @@
 from django.shortcuts import render , get_object_or_404
 from .models import Blog , Tag , Category , Comments
 from .forms import CommentForm
+from django.core.paginator import Paginator
 # Create your views here.
 
 def blog_list(request):
     blogs = Blog.objects.all()
 
+    paginator = Paginator(blogs, 1) # Show 3 contacts per page.
+    page_number = request.GET.get('page')
+    blog_list = paginator.get_page(page_number)
 
     context = {
-        "blogs":blogs
+        "blog_list":blog_list
     }
 
     return render(request,"blog/blog_list.html",context)
