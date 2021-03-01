@@ -7,7 +7,7 @@ from django.core.paginator import Paginator
 def blog_list(request):
     blogs = Blog.objects.all()
 
-    paginator = Paginator(blogs, 1) # Show 3 contacts per page.
+    paginator = Paginator(blogs, 6) # Show 6 contacts per page.
     page_number = request.GET.get('page')
     blog_list = paginator.get_page(page_number)
 
@@ -56,3 +56,9 @@ def blog_category(request,category):
         "blogs":blogs
     }
     return render(request,"blog/blog_list.html",context)
+
+def search(request):
+    if request.method == "GET":
+        q = request.GET.get("search")
+    blog_list = Blog.objects.filter(title__icontains=q)
+    return render(request,"blog/blog_list.html",{"blog_list":blog_list})

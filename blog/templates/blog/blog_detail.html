@@ -119,12 +119,14 @@
             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-8 col-12 blog-sidebar">
                 <div class="right-side-blog">
                     <h3>Search</h3>
-                    <div class="blog-search-form">
-                        <input name="search" placeholder="Search blog" type="text">
-                        <button class="search-btn">
-                            <i class="fa fa-search" aria-hidden="true"></i>
-                        </button>
-                    </div>
+                        <form method="GET" action="{% url 'blog:search' %}">
+                            <div class="blog-search-form">
+                                <input name="search" placeholder="Search blog" type="text">
+                                <button class="search-btn" type="submit">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </form>
                     <h3>Categories</h3>
                     <div class="blog-categories">
                         <ul>
