@@ -40,6 +40,12 @@ class Comments(models.Model):
     message = models.TextField(_("متن نظر"))
     date = models.DateField(_("تاریخ انتشار"), auto_now=False, auto_now_add=True)
 
+    class Meta:
+        verbose_name = "کامنت"
+        verbose_name_plural = "کامنت ها"
+
     def __str__(self):
         return self.email
+
+    
     

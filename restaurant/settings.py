@@ -39,8 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'foods',
-    'reserveation',
-    'blog',
+    'reserveation.apps.ReserveationConfig',
+    'blog.apps.BlogConfig',
+    'contact.apps.ContactConfig',
 ]
 
 MIDDLEWARE = [
